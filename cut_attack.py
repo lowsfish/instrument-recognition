@@ -9,6 +9,13 @@ def db2mag(db):
 
 
 def cut_attack(audio_file, attack_length_ms):
+    """
+    Seperates the signal into one with only attack and one without
+    :param audio_file: The path to the file.
+    :param attack_length_ms: The attack length in milliseconds
+    :return only_attack: (a numpy 1-d array) The signal with the attack separated
+    :return without_attack: (a numpy 1-d array) The signal without the attack
+    """
     try:
         data, sample_rate = sf.read(audio_file)
     except RuntimeError:
